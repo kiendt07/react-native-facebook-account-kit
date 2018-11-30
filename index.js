@@ -97,7 +97,7 @@ export class LoginButton extends Component {
     type: 'phone'
   };
 
-  onPress() {
+  handleLogin = () => {
     const login = this.props.type.toLowerCase() == 'email' ?
       AccountKit.loginWithEmail : AccountKit.loginWithPhone
 
@@ -116,7 +116,7 @@ export class LoginButton extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={this.props.style} onPress={() => { this.onPress() }}>
+      <TouchableOpacity style={this.props.style} onPress={() => this.props.onPress(this.handleLogin)}>
         {this.props.children}
       </TouchableOpacity>
     )
